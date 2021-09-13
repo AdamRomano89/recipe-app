@@ -9,7 +9,7 @@
 }
 
 .hero{
-    background-image: url("/assets/images/test.jpeg");
+    background-image: url("../images/test.jpeg");
     background-size: cover;
     background-position: center;
     height: 25rem;
