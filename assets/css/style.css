@@ -1,4 +1,16 @@
 .recipe-input{
     width: 40% !important;
     margin-top: 50px;
+    padding: 10px;
+}
+
+.brand-logo{
+    margin-left: 10px;
+}
+
+.hero{
+    background-image: url("/assets/images/test.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 25rem;
 }
