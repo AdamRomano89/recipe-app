@@ -1,16 +1,23 @@
-.recipe-input{
-    width: 40% !important;
-    margin-top: 50px;
-    padding: 10px;
+.recipe-input {
+  width: 40% !important;
+  margin-top: 50px;
+  padding: 10px;
 }
 
-.brand-logo{
-    margin-left: 10px;
+.brand-logo {
+  margin-left: 10px;
 }
 
-.hero{
-    background-image: url("../images/test.jpeg");
-    background-size: cover;
-    background-position: center;
-    height: 25rem;
+.hero {
+  background-image: url("../images/test.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 25rem;
+}
+
+/* Media Query */
+@media screen and (max-width: 575px) {
+  .hero {
+    display: none;
+  }
 }
