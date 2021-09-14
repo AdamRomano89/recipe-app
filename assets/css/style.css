@@ -1,11 +1,11 @@
-.recipe-input{
-    width: 40% !important;
-    margin-top: 50px;
-    padding: 10px;
+.recipe-input {
+  width: 40% !important;
+  margin-top: 50px;
+  padding: 10px;
 }
 
-.brand-logo{
-    margin-left: 10px;
+.brand-logo {
+  margin-left: 10px;
 }
 
 .hero{
@@ -23,3 +23,11 @@
     height: 100%;
     background-color: rgba(0, 0, 0, .4);
 }
+
+/* Media Query */
+@media screen and (max-width: 575px) {
+  .hero {
+    display: none;
+  }
+}
+
