@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Static API vars 
-var api1 = "https://www.themealdb.com/api/json/v1/1/filter.php";
+var api1 = "https://www.themealdb.com/api/json/v1/1/search.php";
 var api2 = "https://www.themealdb.com/api/json/v1/1/lookup.php";
 var api3 = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
 
@@ -35,7 +35,7 @@ formEl.addEventListener('submit', getRecipes);
 function getRecipes(e) {
   e.preventDefault();
   var val = inputEle.value;
-  fetch(api1 + '?i=' + val)
+  fetch(api1 + '?s=' + val)
     .then(function(res){
       return res.json()
     })
@@ -91,7 +91,7 @@ function zeroState() {
 
 //***************--James K START--***************
 function avaliableCategories() {
-// Send Request to api3
-// show all search options
+// Send Request  api3
+// show select tag with options
 }
 //***************--James K END--*************** 
