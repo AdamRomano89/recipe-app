@@ -1,10 +1,10 @@
 .recipe-input {
   width: 40% !important;
-  margin-top: 50px;
+  margin: auto;
   padding: 10px;
 }
 
-/* added font-famlily */
+/* added font-family */
 .brand-logo {
   margin-left: 10px;
   font-family: "Fjalla One", sans-serif;
