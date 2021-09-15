@@ -38,9 +38,12 @@ function getRecipes(e) {
   fetch(api1 + '?s=' + val)
     .then(function(res){
       return res.json()
+      
     })
     .then(function(data){
       viewData(data);
+      var api2RecipeId = meals.idMeal
+      var api2Recipe = meals.strInstructions
     })
     .catch(function(err){
         console.log(err);
