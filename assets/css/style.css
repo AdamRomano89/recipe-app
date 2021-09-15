@@ -4,25 +4,29 @@
   padding: 10px;
 }
 
+/* added font-famlily */
 .brand-logo {
   margin-left: 10px;
+  font-family: "Fjalla One", sans-serif;
 }
 
-.hero{
-    background-image: url("/assets/images/test.jpeg");
-    background-size: cover;
-    background-position: center;
-    height: 40rem;
-    position: relative;
+/* HERO */
+.hero {
+  background-image: url("/assets/images/hero-jumbotron.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 40rem;
+  position: relative;
 }
 
-.hero::before{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .3);
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
 }
+/* HERO END */
 
 /* Media Query */
 @media screen and (max-width: 575px) {
@@ -30,4 +34,3 @@
     display: none;
   }
 }
-
