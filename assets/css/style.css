@@ -4,11 +4,19 @@
   padding: 10px;
 }
 
-/* added font-family */
+/* NAVIGATION */
 .brand-logo {
   margin-left: 10px;
-  font-family: "Fjalla One", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
+
+nav {
+  position: fixed;
+  z-index: 10000;
+  background-image: linear-gradient(45deg, #00796b, #004d40);
+}
+
+/* NAVIGATION END */
 
 /* HERO */
 .hero {
