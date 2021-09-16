@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Static API vars 
 var api1 = "https://www.themealdb.com/api/json/v1/1/search.php";
-var api2 = "https://www.themealdb.com/api/json/v1/1/lookup.php";
+var api2 = "https://api.edamam.com/api/recipes/v2/?q=";
 var api3 = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
 
 // Get Elemets
@@ -42,12 +42,14 @@ function getRecipes(e) {
     })
     .then(function(data){
       viewData(data);
-      var api2RecipeId = meals.idMeal
-      var api2Recipe = meals.strInstructions
+      // var api2RecipeId = recipe.strMeal
+      getSpecificRecipe(recipe);
+      // var api2Recipe = meals.strInstructions
     })
     .catch(function(err){
         console.log(err);
-    })
+    });
+
 }
 
 // View recipe from api 1
@@ -61,7 +63,7 @@ function viewData(recipes) {
           <span class="card-title">${recipe.strMeal}</span>
         </div>
         <div class="card-action">
-          <a href="#" onclick="getSpecificRecipe(${recipe.idMeal})">GET THIS RECIPE</a>
+          <a href="#" onclick="getSpecificRecipe(${recipe.strMeal})">GET THIS RECIPE</a>
         </div>
       </div>
     </div>`
@@ -74,7 +76,17 @@ function viewData(recipes) {
 //***************--Adam West START--***************
 
 //Get recipe details from api2 using fetch. (Your api paramater is idMeal )
-function getSpecificRecipe(idMeal) {
+function getSpecificRecipe(recipe) {
+  var api2Url = api2 +  recipe.strMeal + "&app_id=1ecec89b&app_key=bf723dc8442adc90a8861cbf3d53ef03&type=public";
+
+  fetch(api2Url)
+  .then(function(response) {
+    if (response.ok) {
+      return response.json()
+    }
+  }).then (function(data){
+
+  });
 
 }
 
