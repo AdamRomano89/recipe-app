@@ -43,7 +43,7 @@ function getRecipes(e) {
     .then(function(data){
       viewData(data);
       // var api2RecipeId = recipe.strMeal
-      getSpecificRecipe(recipe);
+      getSpecificRecipe(data);
       // var api2Recipe = meals.strInstructions
     })
     .catch(function(err){
@@ -63,7 +63,7 @@ function viewData(recipes) {
           <span class="card-title">${recipe.strMeal}</span>
         </div>
         <div class="card-action">
-          <a href="#" onclick="getSpecificRecipe(${recipe.strMeal})">GET THIS RECIPE</a>
+          <a  class="modal-trigger" href="#modal1" onclick="getSpecificRecipe(${recipe.strMeal})">GET THIS RECIPE</a>
         </div>
       </div>
     </div>`
@@ -76,8 +76,8 @@ function viewData(recipes) {
 //***************--Adam West START--***************
 
 //Get recipe details from api2 using fetch. (Your api paramater is idMeal )
-function getSpecificRecipe(recipe) {
-  var api2Url = api2 +  recipe.strMeal + "&app_id=1ecec89b&app_key=bf723dc8442adc90a8861cbf3d53ef03&type=public";
+function getSpecificRecipe(recipes) {
+  var api2Url = api2 +  recipes.strMeal + "&app_id=1ecec89b&app_key=bf723dc8442adc90a8861cbf3d53ef03&type=public";
 
   fetch(api2Url)
   .then(function(response) {
@@ -85,7 +85,7 @@ function getSpecificRecipe(recipe) {
       return response.json()
     }
   }).then (function(data){
-
+    viewData(recipes);
   });
 
 }
