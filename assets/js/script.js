@@ -1,33 +1,33 @@
 // 1- get the input by id
-// 2- add event click to button 
+// 2- add event click to button
 // 3- run getRecipes function (use api ..... for getting data)
-// 4- Draw UI for card and apend to body html 
-// 5- every card have a button => click on it => run getspecificRecipe 
+// 4- Draw UI for card and apend to body html
+// 5- every card have a button => click on it => run getspecificRecipe
 // 6- draw UI modal (title - image - description )
-// 7- open modal 
+// 7- open modal
 // 8- modal have x icon => click => close modal
 // 9- ZeroState method
 // 10- select input for searching avalible data ( api request => options for search  )
 
 // Modal JS info from Materialize
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.modal');
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.querySelectorAll(".modal");
   M.Modal.init(elems);
 });
 
-// Static API vars 
+// Static API vars
 var api1 = "https://www.themealdb.com/api/json/v1/1/search.php";
 var api2 = "https://www.themealdb.com/api/json/v1/1/lookup.php";
 var api3 = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
 
 // Get Elemets
-var inputEle = document.querySelector('#search-input');
-var btnEle = document.querySelector('.recipe-input button')
-var content = document.querySelector('.results .row');
-var formEl = document.querySelector('form')
+var inputEle = document.querySelector("#search-input");
+var btnEle = document.querySelector(".recipe-input button");
+var content = document.querySelector(".results .row");
+var formEl = document.querySelector("form");
 
 // Add Events
-formEl.addEventListener('submit', getRecipes);
+formEl.addEventListener("submit", getRecipes);
 
 //***************--Adam Romano START--***************
 
@@ -35,23 +35,23 @@ formEl.addEventListener('submit', getRecipes);
 function getRecipes(e) {
   e.preventDefault();
   var val = inputEle.value;
-  fetch(api1 + '?s=' + val)
-    .then(function(res){
-      return res.json()
+  fetch(api1 + "?s=" + val)
+    .then(function (res) {
+      return res.json();
     })
-    .then(function(data){
+    .then(function (data) {
       viewData(data);
     })
-    .catch(function(err){
-        console.log(err);
-    })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 
 // View recipe from api 1
 function viewData(recipes) {
-  var card = ""
-  recipes.meals.forEach(function(recipe){
-  card += `<div class="col s4">
+  var card = "";
+  recipes.meals.forEach(function (recipe) {
+    card += `<div class="col s4">
       <div class="card">
         <div class="card-image">
           <img src="${recipe.strMealThumb}">
@@ -61,37 +61,60 @@ function viewData(recipes) {
           <a href="#" onclick="getSpecificRecipe(${recipe.idMeal})">GET THIS RECIPE</a>
         </div>
       </div>
-    </div>`
+    </div>`;
   });
-  content.innerHTML = card
+  content.innerHTML = card;
 }
 //***************--Adam Romano END--***************
-
 
 //***************--Adam West START--***************
 
 //Get recipe details from api2 using fetch. (Your api paramater is idMeal )
-function getSpecificRecipe(idMeal) {
-
-}
+function getSpecificRecipe(idMeal) {}
 
 // View recipe details from api2 in Modal (Modal is in the HTML, so delete it first then create it dynamically in JS)
 function viewModal(recipe) {
-console.log(recipe.meals[0]);
+  console.log(recipe.meals[0]);
 }
 //***************--Adam West END--***************
 
-
 //***************--Kevin Hernandez START--***************
 // Create the zero state function when no results are available
-function zeroState() {
-}
+function zeroState() {}
 //***************--Kevin Hernandez END--***************
-
 
 //***************--James K START--***************
 function avaliableCategories() {
-// Send Request  api3
-// show select tag with options
+  // send request api3
+  // show select tag with options
+  fetch(api3)
+    .then(function (respond) {
+      return res.json();
+    })
+    .then(function (data) {
+      showSearches(data);
+    })
+    .catch(function (error) {});
 }
-//***************--James K END--*************** 
+
+function showSearches(results) {
+  var searches = "";
+  results.meals.forEach(function (res) {
+    searches += `<span onclick="search('${res.strCategory}')">${res.strCategory}</span>`;
+  });
+  avaSearches.innerHTML = searches;
+}
+
+function search(menuItem) {
+  fetch(api1 + "?s=" + menuItem)
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      viewData(data);
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+//***************--James K END--***************
