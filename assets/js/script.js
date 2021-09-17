@@ -25,6 +25,7 @@ var inputEle = document.querySelector('#search-input');
 var btnEle = document.querySelector('.recipe-input button')
 var content = document.querySelector('.results .row');
 var formEl = document.querySelector('form')
+var noRes = document.querySelector(".no-results");
 
 // Add Events
 formEl.addEventListener('submit', getRecipes);
@@ -50,8 +51,10 @@ function getRecipes(e) {
 // View recipe from api 1
 function viewData(recipes) {
   var card = ""
-  recipes.meals.forEach(function(recipe){
-  card += `<div class="col s4">
+
+  if(recipes.meals) {
+     recipes.meals.forEach(function(recipe){
+      card += `<div class="col s4">
       <div class="card">
         <div class="card-image">
           <img src="${recipe.strMealThumb}">
@@ -61,9 +64,16 @@ function viewData(recipes) {
           <a href="#" onclick="getSpecificRecipe(${recipe.idMeal})">GET THIS RECIPE</a>
         </div>
       </div>
-    </div>`
+    </div>` 
   });
-  content.innerHTML = card
+  content.innerHTML = card;
+  noRes.style.display = "none";
+  } else {
+    content.innerHTML = '';
+
+    zeroState();
+  }
+
 }
 //***************--Adam Romano END--***************
 
@@ -85,7 +95,7 @@ console.log(recipe.meals[0]);
 //***************--Kevin Hernandez START--***************
 // Create the zero state function when no results are available
 function zeroState() {
-  
+  noRes.style.display = "block"
 }
 //***************--Kevin Hernandez END--***************
 
