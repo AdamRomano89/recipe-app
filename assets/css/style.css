@@ -41,5 +41,7 @@ nav {
   .hero {
     display: none;
   }
-  
+  nav {
+    display: none;
+  }
 }
