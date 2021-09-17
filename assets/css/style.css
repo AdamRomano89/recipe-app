@@ -20,7 +20,7 @@ nav {
 
 /* HERO */
 .hero {
-  background-image: url("/assets/images/hero-jumbotron.jpg");
+  background-image: url("../images/hero-jumbotron.jpg");
   background-size: cover;
   background-position: center;
   height: 40rem;
