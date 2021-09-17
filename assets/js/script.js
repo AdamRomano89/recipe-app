@@ -85,6 +85,7 @@ console.log(recipe.meals[0]);
 //***************--Kevin Hernandez START--***************
 // Create the zero state function when no results are available
 function zeroState() {
+  
 }
 //***************--Kevin Hernandez END--***************
 
