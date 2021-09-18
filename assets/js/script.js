@@ -40,18 +40,13 @@ function getRecipes(e) {
   fetch(api1 + '?s=' + val)
     .then(function(res){
       return res.json()
-      
     })
     .then(function(data){
       viewData(data);
-      // var api2RecipeId = recipe.strMeal
-      // getSpecificRecipe(data);
-      // var api2Recipe = meals.strInstructions
     })
     .catch(function(err){
         console.log(err);
     });
-
 }
 
 // View recipe from api 1
@@ -121,9 +116,6 @@ function viewNutrition(data, recipeTitle, recipe) {
 modal.innerHTML = modalHtmlEl;
 console.log(modal);
 } 
-
-
-
 //***************--Adam West END--***************
 
 
