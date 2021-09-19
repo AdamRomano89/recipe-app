@@ -36,10 +36,14 @@ nav {
 }
 /* HERO END */
 
+.no-results {
+  display: none;
+  text-align: center;
+}
+
 /* Media Query */
 @media screen and (max-width: 575px) {
   .hero {
     display: none;
   }
-  
 }
