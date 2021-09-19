@@ -15,9 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
   M.Modal.init(elems);
 });
 
+
 // Static API vars 
 var api1 = "https://www.themealdb.com/api/json/v1/1/search.php";
-var api2 = "https://www.themealdb.com/api/json/v1/1/lookup.php";
+var api2 = "https://api.edamam.com/api/recipes/v2/?q=";
 var api3 = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
 
 // Get Elemets
@@ -26,6 +27,7 @@ var btnEle = document.querySelector('.recipe-input button')
 var content = document.querySelector('.results .row');
 var formEl = document.querySelector('form')
 var noRes = document.querySelector(".no-results");
+var modal =  document.querySelector("#modal1")
 
 // Add Events
 formEl.addEventListener('submit', getRecipes);
@@ -45,11 +47,12 @@ function getRecipes(e) {
     })
     .catch(function(err){
         console.log(err);
-    })
+    });
 }
 
 // View recipe from api 1
 function viewData(recipes) {
+  console.log("aa", recipes);
   var card = ""
 
   if(recipes.meals) {
@@ -61,7 +64,7 @@ function viewData(recipes) {
           <span class="card-title">${recipe.strMeal}</span>
         </div>
         <div class="card-action">
-          <a href="#" onclick="getSpecificRecipe(${recipe.idMeal})">GET THIS RECIPE</a>
+          <a  class="modal-trigger" href="#modal1" onclick="getSpecificRecipe('${recipe.strMeal}','${recipe.idMeal}', '${recipes}')">GET THIS RECIPE</a>
         </div>
       </div>
     </div>` 
@@ -81,14 +84,48 @@ function viewData(recipes) {
 //***************--Adam West START--***************
 
 //Get recipe details from api2 using fetch. (Your api paramater is idMeal )
-function getSpecificRecipe(idMeal) {
+function getSpecificRecipe(strMeal, id) {
+  console.log(strMeal, id);
+  var api2Url = api2 +  strMeal + "&app_id=1ecec89b&app_key=bf723dc8442adc90a8861cbf3d53ef03&type=public";
+
+  fetch(api2Url)
+  .then(function(response) {
+    if (response.ok) {
+      return response.json()
+    }
+  }).then (function(data1){
+    fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id)
+    .then(function(res){
+      return res.json()
+      
+    })
+    .then(function(data2){
+      viewNutrition(data1, strMeal, data2);
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+   
+    console.log(viewNutrition);
+  });
 
 }
 
 // View recipe details from api2 in Modal (Modal is in the HTML, so delete it first then create it dynamically in JS)
-function viewModal(recipe) {
-console.log(recipe.meals[0]);
-}
+function viewNutrition(data, recipeTitle, recipe) {
+  
+  var modalHtmlEl =
+  `<div class="modal-content">
+      <h4>${recipeTitle}</h4>
+      <p> ${recipe.meals[0].strInstructions}</p>
+      <p> ${Math.floor(data.hits[0].recipe.calories)} calories</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>`
+modal.innerHTML = modalHtmlEl;
+console.log(modal);
+} 
 //***************--Adam West END--***************
 
 
