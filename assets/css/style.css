@@ -67,6 +67,27 @@ nav {
   filter: brightness(100%);
 }
 
+/* Featured Menu */
+.featured-section {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+}
+
+.card {
+  margin: 10px;
+}
+
+.featured-section ul {
+  font-weight: bold;
+}
+
+.results {
+  width: 80%;
+  margin: auto;
+}
+
 /* Media Query */
 @media screen and (max-width: 575px) {
   .hero {
@@ -75,7 +96,7 @@ nav {
   nav {
     display: none;
   }
-  #showcase {
+  .featured-section {
     display: grid;
   }
 }
