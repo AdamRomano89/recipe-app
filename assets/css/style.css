@@ -67,9 +67,14 @@ nav {
   filter: brightness(100%);
 }
 
+/* Featured Menu */
 .featured-section {
   display: flex;
   justify-content: space-around;
+}
+
+.featured-section ul {
+  font-weight: bold;
 }
 
 /* Media Query */
