@@ -44,4 +44,7 @@ nav {
   nav {
     display: none;
   }
+  #showcase {
+    display: grid;
+  }
 }
