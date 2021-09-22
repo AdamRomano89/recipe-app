@@ -80,7 +80,6 @@ function viewData(recipes) {
 
 //Get recipe details from api2 using fetch. (Your api paramater is idMeal )
 function getSpecificRecipe(strMeal, id) {
-  console.log(strMeal, id);
   var api2Url = api2 +  strMeal + "&app_id=1ecec89b&app_key=bf723dc8442adc90a8861cbf3d53ef03&type=public";
 
   fetch(api2Url)
@@ -90,18 +89,15 @@ function getSpecificRecipe(strMeal, id) {
     }
   }).then (function(data1){
     fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id)
-    .then(function(res){
-      return res.json()
-      
-    })
-    .then(function(data2){
-      viewNutrition(data1, strMeal, data2);
-    })
-    .catch(function(err){
-        console.log(err);
-    });
-   
-    console.log(viewNutrition);
+      .then(function(res){
+        return res.json()
+      })
+      .then(function(data2){
+        viewNutrition(data1, strMeal, data2);
+      })
+      .catch(function(err){
+          console.log(err);
+      });
   });
 
 }
