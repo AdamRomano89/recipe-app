@@ -1,27 +1,15 @@
-// 1- get the input by id
-// 2- add event click to button 
-// 3- run getRecipes function (use api ..... for getting data)
-// 4- Draw UI for card and apend to body html 
-// 5- every card have a button => click on it => run getspecificRecipe 
-// 6- draw UI modal (title - image - description )
-// 7- open modal 
-// 8- modal have x icon => click => close modal
-// 9- ZeroState method
-// 10- select input for searching avalible data ( api request => options for search  )
-
 // Modal JS info from Materialize
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.modal');
   M.Modal.init(elems);
 });
 
-
 // Static API vars 
-var api1 = "https://www.themealdb.com/api/json/v1/1/search.php";
-var api2 = "https://api.edamam.com/api/recipes/v2/?q=";
+var mealApi = "https://www.themealdb.com/api/json/v1/1/search.php";
+var recipeApi = "https://api.edamam.com/api/recipes/v2/?q=";
 var api3 = "https://www.themealdb.com/api/json/v1/1/list.php?c=list";
 
-// Get Elemets
+// Get Elements
 var inputEle = document.querySelector('#search-input');
 var btnEle = document.querySelector('.recipe-input button')
 var content = document.querySelector('.results .row');
@@ -38,16 +26,13 @@ formEl.addEventListener('submit', getRecipes);
 function getRecipes(e) {
   e.preventDefault();
   var val = inputEle.value;
-  fetch(api1 + '?s=' + val)
+  fetch(mealApi + '?s=' + val)
     .then(function(res){
       return res.json()
       
     })
     .then(function(data){
       viewData(data);
-      // var api2RecipeId = recipe.strMeal
-      // getSpecificRecipe(data);
-      // var api2Recipe = meals.strInstructions
     })
     .catch(function(err){
     });
@@ -86,10 +71,10 @@ function viewData(recipes) {
 
 //***************--Adam West START--***************
 
-//Get recipe details from api2 using fetch. (Your api paramater is idMeal )
+//Get recipe details from api2 using fetch. (Your api parameter is idMeal )
 function getSpecificRecipe(strMeal, id) {
   modal.innerHTML = ""
-  var api2Url = api2 +  strMeal + "&app_id=1ecec89b&app_key=bf723dc8442adc90a8861cbf3d53ef03&type=public";
+  var api2Url = recipeApi +  strMeal + "&app_id=1ecec89b&app_key=bf723dc8442adc90a8861cbf3d53ef03&type=public";
 
   fetch(api2Url)
   .then(function(response) {
@@ -119,10 +104,10 @@ function viewNutrition(data, recipeTitle, recipe) {
   `<div class="modal-content">
       <h4>${recipeTitle}</h4>
       <p> ${recipe.meals[0].strInstructions}</p>
-      <p> ${Math.floor(data.hits[0].recipe.calories)} calories</p>
+      <p class="calories"> ${Math.floor(data.hits[0].recipe.calories)} calories</p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      <a href="#!" class="modal-close waves-effect waves-green btn exit-btn">EXIT</a>
     </div>`
 modal.innerHTML = modalHtmlEl;
 } 

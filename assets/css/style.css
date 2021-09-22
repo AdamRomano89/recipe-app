@@ -41,6 +41,32 @@ nav {
   text-align: center;
 }
 
+/* modal styles */
+.calories {
+  max-width: 20%;
+  padding: 10px;
+}
+
+.modal-content h4 {
+  border-bottom: 2px solid #000;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.exit-btn {
+  margin-left: 5px !important;
+  font-size: 20px;
+  float: left;
+}
+
+.card img {
+  filter: brightness(60%);
+}
+
+.card img:hover {
+  filter: brightness(100%);
+}
+
 /* Media Query */
 @media screen and (max-width: 575px) {
   .hero {
