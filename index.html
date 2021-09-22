@@ -1,274 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yummy</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git-A-Recipe a</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
-      rel="stylesheet"
-    />
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
-    <!-- Compiled and minified CSS - Content Dev network -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <!-- Materialize Icons -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!-- CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo center">Yummy</a>
-      </div>
-    </nav>
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/8cf654fcb3.js" crossorigin="anonymous"></script> 
+        <!-- Compiled and minified CSS - Content Dev network -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <!-- Materialize Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">Git-A-Recipe</a>
+    </div>
+  </nav>
 
-    <!-- Hero Sections -->
+    <!-- Hero Section -->
     <div class="hero"></div>
 
-    <div class="input-field col s12 recipe-input">
-      <form action="">
-        <label for="search-input">Search Recipe</label>
-        <input
-          placeholder="What are you craving today?"
-          id="search-input"
-          type="text"
-          class="validate"
-          autofocus
-        />
-        <button
-          class="btn waves-effect waves-light"
-          type="submit"
-          name="action"
-        >
-          FIND RECIPE
-          <i class="material-icons right">send</i>
-        </button>
-      </form>
+  <div class="input-field col s12 recipe-input">
+   <form action="">
+    <label for="search-input">Search Recipe</label>
+    <input placeholder="What are you craving today?" id="search-input" type="text" class="validate" autofocus/>
+    <button class="btn waves-effect waves-light" type="submit" name="action">FIND RECIPE
+      <i class="material-icons right">send</i>
+    </button>
+   </form>
+  </div>
+
+  <!-- Results -->
+  <div class="results">
+    <div class="row">
+      
     </div>
 
-    <!-- Featured Dishes -->
-    <div class="featured-section">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="./assets/images/boiledChicken.jpg" />
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"
-            >Boiled Chicken<i class="material-icons right">more_vert</i></span
-          >
-          <p>186 Calories</p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"
-            >Boiled Chicken<i class="material-icons right">close</i></span
-          >
-          <ol>
-            <li>
-              Place chicken in a large pot with onions, carrots, celery, and
-              peppercorns; add water to cover.
-            </li>
-            <li>
-              Cover pot and bring to a boil; reduce heat to a gentle boil and
-              cook for about 90 minutes, or until chicken meat is falling off of
-              the bone.
-            </li>
-            <li>Remove chicken, let cool and shred or chop the meat.</li>
-          </ol>
-          <ol>
-            <ul>
-              Prep: 10 minutes
-            </ul>
-            <ul>
-              Cook: 1 hour 30 minutes
-            </ul>
-            <ul>
-              Total: 1 hour 45 minutes
-            </ul>
-            <ul>
-              Servings: 8
-            </ul>
-            <ul>
-              Yield: 8 servings
-            </ul>
-          </ol>
-        </div>
-      </div>
+    <div class="no-results">
+      <h4>
+        <i class="fas fa-utensils"></i>
+         No Recipe Found 
+        <i class="fas fa-utensils"></i>
+      </h4>
+    </div>
+  </div>
+  
+ <!-- Modal Structure -->
+ <div id="modal1" class="modal">
 
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="./assets/images/sesameSearedTuna.jpg" />
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"
-            >Sesame Seared Tuna<i class="material-icons right"
-              >more_vert</i
-            ></span
-          >
-          <p>422 Calories</p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"
-            >Sesame Seared Tuna<i class="material-icons right">close</i></span
-          >
-          <ol>
-            <li>
-              In a small bowl, stir together with soy sauce, mirin, honey, and
-              sesame oil. Divide into two equal parts. Stir the rice vinegar
-              into one part and set aside as a dipping sauce.
-            </li>
-            <li>
-              Spread the sesame seeds out on a plate. Coat the tuna steaks with
-              the remaining soy sauce mixture, then press into the sesame seeds
-              to coat.
-            </li>
-            <li>
-              Heat olive oil in a cast iron skillet over high heat until very
-              hot. Place steaks in the pan, and sear for about 30 seconds on
-              each side. Serve with the dipping sauce and wasabi paste
-            </li>
-          </ol>
-          <ol>
-            <ul>
-              Prep: 10 minutes
-            </ul>
-            <ul>
-              Cook: 10 minutes
-            </ul>
-            <ul>
-              Total: 25 minutes
-            </ul>
-            <ul>
-              Servings: 4
-            </ul>
-            <ul>
-              Yield: 4 steaks
-            </ul>
-          </ol>
-        </div>
-      </div>
+ </div>
 
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img
-            class="activator"
-            src="./assets/images/dijonRoastedCauliflower.jpg"
-          />
+ <!-- Footer -->
+  <footer class="page-footer teal darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Git-A-Recipe</h5>
+          <p class="grey-text text-lighten-4">Brought to you from a dedicated team of aspiring Developers. We came together to build user-interactive web application that allows the user to find and cook their favorite dish.</p>
         </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"
-            >Dijon Roasted Cauliflower<i class="material-icons right"
-              >more_vert</i
-            ></span
-          >
-          <p>164 Calories</p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"
-            >Dijon Roasted Cauliflower<i class="material-icons right"
-              >close</i
-            ></span
-          >
-          <ol>
-            <li>Preheat the oven to 375 degrees F (190 degrees C).</li>
-            <li>
-              Put mustard in a large bowl. Slowly pour oil into mustard while
-              continuously mixing to form a smooth sauce; stir in shallot and
-              garlic. Add cauliflower to the mustard sauce and stir to coat.
-              Pour coated cauliflower onto a baking sheet, scraping out any
-              shallot or garlic stuck to the bowl and sprinkling over
-              cauliflower.
-            </li>
-            <li>
-              Bake in the preheated oven, stirring 2 to 3 times, until
-              cauliflower is tender, about 45 minutes.
-            </li>
-          </ol>
-          <ol>
-            <ul>
-              Prep: 15 minutes
-            </ul>
-            <ul>
-              Cook: 50 minutes
-            </ul>
-            <ul>
-              Total: 1 hour
-            </ul>
-            <ul>
-              Servings: 4
-            </ul>
-            <ul>
-              Yield: 4 servings
-            </ul>
-          </ol>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/AdamRomano89/recipe-app" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://developer.twitter.com/en" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://developers.facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://stackoverflow.com/" target="_blank"><i class="fab fa-stack-overflow"></i> StackOverflow</a></li>
+          </ul>
         </div>
       </div>
     </div>
-
-    <!-- Results -->
-    <div class="results">
-      <div class="row" id="showcase"></div>
-    </div>
-
-    <!-- Modal Trigger -->
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1"
-      >Modal</a
-    >
-
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-      <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat"
-          >Agree</a
-        >
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="page-footer teal darken-3">
+    <div class="footer-copyright">
       <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Footer Content</h5>
-            <p class="grey-text text-lighten-4">
-              You can use rows and columns here to organize your footer content.
-            </p>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Links</h5>
-            <ul>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-            </ul>
-          </div>
-        </div>
+      © 2021 Copyright reserved to the-git-togethers team
       </div>
-      <div class="footer-copyright">
-        <div class="container">
-          © 2021 Copyright reserved to the-git-togethers team
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
-      </div>
-    </footer>
+    </div>
+  </footer>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/script.js"></script>
-  </body>
+</body>
 </html>
