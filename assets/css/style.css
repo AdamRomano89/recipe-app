@@ -67,6 +67,11 @@ nav {
   filter: brightness(100%);
 }
 
+.featured-section {
+  display: flex;
+  justify-content: space-around;
+}
+
 /* Media Query */
 @media screen and (max-width: 575px) {
   .hero {
