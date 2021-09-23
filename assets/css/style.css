@@ -79,8 +79,26 @@ nav {
   margin: 10px;
 }
 
+.featured-section li {
+  font-weight: 500;
+  padding-bottom: 1rem;
+}
+
 .featured-section ul {
-  font-weight: bold;
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+}
+
+.featured-section ol {
+  padding-bottom: 1rem;
+}
+
+.card .card-title {
+  font-weight: 600;
+}
+
+.card .card-content p {
+  font-weight: 500;
 }
 
 .results {
