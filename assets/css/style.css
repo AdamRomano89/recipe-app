@@ -62,9 +62,9 @@ nav {
 }
 
 .exit-btn {
-  margin-left: 5px !important;
   font-size: 20px;
-  float: left;
+  text-transform: capitalize !important;
+  width: 100%;
 }
 
 .card img {
@@ -83,20 +83,38 @@ nav {
   margin: auto;
 }
 
-.featuredRecipes{
+.featuredRecipes {
   width: 80%;
   margin: 0 auto 10px auto;
   padding: 10px;
   font-size: 30px;
-  color: #00796b
+  color: #00796b;
 }
 
 .card {
   margin: 10px;
 }
 
+.featured-section li {
+  font-weight: 300;
+  padding-bottom: 1rem;
+}
+
 .featured-section ul {
-  font-weight: bold;
+  font-weight: 300;
+  padding-bottom: 0.5rem;
+}
+
+.featured-section ol {
+  padding-bottom: 1rem;
+}
+
+.card .card-title {
+  font-weight: 400;
+}
+
+.card .card-content p {
+  font-weight: 300;
 }
 
 .results {
@@ -106,10 +124,10 @@ nav {
 
 /* Media Query */
 @media (max-width: 768px) {
-  .card{
+  .card {
     width: 100%;
   }
-  .featured-section{
+  .featured-section {
     flex-direction: column;
   }
   .recipe-input {
@@ -121,10 +139,10 @@ nav {
 }
 
 @media (min-width: 769px) and (max-width: 991px) {
-  .featured-section{
+  .featured-section {
     flex-wrap: wrap;
   }
-  .card{
+  .card {
     width: 45%;
   }
 }
