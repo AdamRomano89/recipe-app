@@ -89,14 +89,17 @@ nav {
 }
 
 /* Media Query */
-@media screen and (max-width: 575px) {
-  .hero {
-    display: none;
+@media (max-width: 768px) {
+  .card{
+    width: 100%;
   }
-  nav {
-    display: none;
+  .featured-section{
+    flex-direction: column;
   }
-  .featured-section {
-    display: grid;
+  .recipe-input {
+    width: 80% !important;
+  }
+  .card {
+    margin: 10px 0;
   }
 }

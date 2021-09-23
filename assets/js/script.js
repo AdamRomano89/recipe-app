@@ -43,7 +43,7 @@ function viewData(recipes) {
 
   if (recipes.meals) {
     recipes.meals.forEach(function (recipe) {
-      card += `<div class="col s4">
+      card += `<div class="col s12 m6 l4">
       <div class="card">
         <div class="card-image">
           <img src="${recipe.strMealThumb}">
@@ -99,7 +99,7 @@ function viewNutrition(data, recipeTitle, recipe) {
       <h4>${recipeTitle}</h4>
       <p> ${recipe.meals[0].strInstructions}</p>
       <p class="calories"> ${Math.floor(
-        data.hits[0].recipe.calories
+        data.hits.length > 0 ? data.hits[0].recipe.calories : 0
       )} calories</p>
     </div>
     <div class="modal-footer">
