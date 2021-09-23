@@ -41,6 +41,14 @@ nav {
   text-align: center;
 }
 
+.no-results h4 {
+  background-color: brown;
+  color: #fff;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
 /* modal styles */
 .calories {
   max-width: 20%;
@@ -75,6 +83,14 @@ nav {
   margin: auto;
 }
 
+.featuredRecipes{
+  width: 80%;
+  margin: 0 auto 10px auto;
+  padding: 10px;
+  font-size: 30px;
+  color: #00796b
+}
+
 .card {
   margin: 10px;
 }
@@ -107,14 +123,26 @@ nav {
 }
 
 /* Media Query */
-@media screen and (max-width: 575px) {
-  .hero {
-    display: none;
+@media (max-width: 768px) {
+  .card{
+    width: 100%;
   }
-  nav {
-    display: none;
+  .featured-section{
+    flex-direction: column;
   }
-  .featured-section {
-    display: grid;
+  .recipe-input {
+    width: 80% !important;
+  }
+  .card {
+    margin: 10px 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+  .featured-section{
+    flex-wrap: wrap;
+  }
+  .card{
+    width: 45%;
   }
 }
