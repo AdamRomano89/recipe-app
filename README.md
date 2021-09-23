@@ -10,9 +10,9 @@ Our application uses Materialize to create a crisp, user-friendly website. When 
 
 User will type a food ingredient in the input section. Once the search button is pressed the website will populate the page with all related recipes associated with that search word. The user can then click on a recipe to deploy a modal with all related recipe information. 
 
-![alt text](assets/images/screenshots/Landing-page.png)
-![alt text](assets/images/screenshots/Recipe-modal.png)
-![alt text](assets/images/screenshots/Recipes.png)
+![alt text](assets/images/Screenshots/Landing-page.png)
+![alt text](assets/images/Screenshots/Recipe-modal.png)
+![alt text](assets/images/Screenshots/Recipes.png)
 
 ## Credits
 
