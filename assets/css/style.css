@@ -41,6 +41,14 @@ nav {
   text-align: center;
 }
 
+.no-results h4 {
+  background-color: brown;
+  color: #fff;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
 /* modal styles */
 .calories {
   max-width: 20%;
@@ -73,6 +81,14 @@ nav {
   justify-content: space-around;
   width: 80%;
   margin: auto;
+}
+
+.featuredRecipes{
+  width: 80%;
+  margin: 0 auto 10px auto;
+  padding: 10px;
+  font-size: 30px;
+  color: #00796b
 }
 
 .card {

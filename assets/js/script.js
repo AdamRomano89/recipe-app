@@ -17,6 +17,7 @@ var formEl = document.querySelector("form");
 var noRes = document.querySelector(".no-results");
 var modal = document.querySelector("#modal1");
 var featureSection = document.querySelector(".featured-section");
+var featuredRecipes = document.querySelector(".featuredRecipes")
 // Add Events
 formEl.addEventListener("submit", getRecipes);
 
@@ -25,6 +26,7 @@ formEl.addEventListener("submit", getRecipes);
 //Get recipe form api 1
 function getRecipes(e) {
   e.preventDefault();
+  featuredRecipes.style.display = "none"
   featureSection.style.display = "none";
   var val = inputEle.value;
   fetch(mealApi + "?s=" + val)
@@ -103,7 +105,7 @@ function viewNutrition(data, recipeTitle, recipe) {
       )} calories</p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn exit-btn">EXIT</a>
+      <a href="#!" class="modal-close waves-effect waves-green btn exit-btn">Close</a>
     </div>`;
   modal.innerHTML = modalHtmlEl;
 }
@@ -115,10 +117,3 @@ function zeroState() {
   noRes.style.display = "block";
 }
 //***************--Kevin Hernandez END--***************
-
-//***************--James K START--***************
-function avaliableCategories() {
-  // Send Request  api3
-  // show select tag with options
-}
-//***************--James K END--***************
