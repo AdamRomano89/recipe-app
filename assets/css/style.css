@@ -119,3 +119,12 @@ nav {
     margin: 10px 0;
   }
 }
+
+@media (min-width: 769px) and (max-width: 991px) {
+  .featured-section{
+    flex-wrap: wrap;
+  }
+  .card{
+    width: 45%;
+  }
+}
