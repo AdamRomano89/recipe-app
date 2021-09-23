@@ -16,11 +16,11 @@ User will type a food ingredient in the input section. Once the search button is
 
 ## Credits
 
-Adam Ramono
-Kevin Hernandez
-James K 
-Judge McGriff
-Adam West 
+##### Adam Ramono
+##### Kevin Hernandez
+##### James K 
+##### Adam West 
+##### Judge McGriff
 
 ## License
 
