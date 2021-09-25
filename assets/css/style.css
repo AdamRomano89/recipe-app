@@ -49,12 +49,6 @@ nav {
   border-radius: 5px;
 }
 
-/* modal styles */
-.calories {
-  max-width: 20%;
-  padding: 10px;
-}
-
 .modal-content h4 {
   border-bottom: 2px solid #000;
   text-align: center;
@@ -136,6 +130,11 @@ nav {
   .card {
     margin: 10px 0;
   }
+}
+
+ul:not(.browser-default)>li {
+  list-style-type: circle;
+  margin-left: 20px;
 }
 
 @media (min-width: 769px) and (max-width: 991px) {

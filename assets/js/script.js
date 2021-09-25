@@ -52,7 +52,7 @@ function viewData(recipes) {
           <span class="card-title">${recipe.strMeal}</span>
         </div>
         <div class="card-action">
-          <a  class="modal-trigger" href="#modal1" onclick="getSpecificRecipe('${recipe.strMeal}','${recipe.idMeal}', '${recipes}')">GET THIS RECIPE</a>
+          <a  class="modal-trigger" href="#modal1" onclick="getSpecificRecipe('${recipe.strMeal}','${recipe.idMeal}')">GET THIS RECIPE</a>
         </div>
       </div>
     </div>`;
@@ -70,26 +70,27 @@ function viewData(recipes) {
 //***************--Adam West START--***************
 
 //Get recipe details from api2 using fetch. (Your api parameter is idMeal )
+
+
+
+// api https://api.edamam.com/api/recipes/v2/?q=MealTitle
 function getSpecificRecipe(strMeal, id) {
   modal.innerHTML = "";
-  var api2Url =
-    recipeApi +
-    strMeal +
-    "&app_id=1ecec89b&app_key=bf723dc8442adc90a8861cbf3d53ef03&type=public";
+  // to get Caloures
 
-  fetch(api2Url)
+  fetch(recipeApi + strMeal + "&app_id=1ecec89b&app_key=bf723dc8442adc90a8861cbf3d53ef03&type=public")
     .then(function (response) {
       if (response.ok) {
         return response.json();
       }
     })
     .then(function (data1) {
-      fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id)
+      fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id) // to get sepefici data for each meal
         .then(function (res) {
           return res.json();
         })
-        .then(function (data2) {
-          viewNutrition(data1, strMeal, data2);
+        .then(function (mealDetails) {
+          viewNutrition(data1, strMeal, mealDetails);
         })
         .catch(function (err) {});
     });
@@ -99,9 +100,18 @@ function getSpecificRecipe(strMeal, id) {
 function viewNutrition(data, recipeTitle, recipe) {
   var modalHtmlEl = `<div class="modal-content">
       <h4>${recipeTitle}</h4>
+      <h5>Ingredients</h5>
+      <ul> ${data.hits[0].recipe.ingredients.map(function(ing){
+        return "<li>" + ing.text + "</li>"
+      }).join("")} <ul>
+      <hr>
+      <h5>Instructions</h5>
       <p> ${recipe.meals[0].strInstructions}</p>
+      <hr>
       <p class="calories"> ${Math.floor(
-        data.hits.length > 0 ? data.hits[0].recipe.calories : 0
+        data.hits.length > 0 ? data.hits.reduce(function(acc , item){
+          return acc + item.recipe.calories
+        }, 0) : 0
       )} calories</p>
     </div>
     <div class="modal-footer">

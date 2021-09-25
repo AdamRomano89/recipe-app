@@ -23,5 +23,3 @@ User will type a food ingredient in the input section. Once the search button is
 ##### Judge McGriff
 
 ## License
-
-
