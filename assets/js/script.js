@@ -85,20 +85,36 @@ function getSpecificRecipe(strMeal, id) {
     });
 }
 
+function displayIngredients(data) {
+  return data.hits.length > 0 ? data.hits.find(function(cal){
+    return cal.recipe.ingredients.length > 0
+   }).recipe.ingredients.map(function(ing){
+    return "<li>" + ing.text + "</li>"
+  }).join("") : "No available ingredients"
+}
+
+function displayCalories(data){
+  return data.hits.length > 0 ? Math.floor(data.hits.find(function(cal){
+    return cal.recipe.calories > 0
+   }).recipe.calories) : "No calories was found"
+}
+
+function recipeInstruction(recipe){
+  return recipe.meals[0].strInstructions
+}
+
 // View recipe details from api2 in Modal (Modal is in the HTML, so delete it first then create it dynamically in JS)
 function viewNutrition(data, recipeTitle, recipe) {
   console.log(data);
   var modalHtmlEl = `<div class="modal-content">
       <h4>${recipeTitle}</h4>
       <h5>Ingredients</h5>
-      <ul> ${data.hits[15].recipe.ingredients.map(function(ing){
-        return "<li>" + ing.text + "</li>"
-      }).join("")} <ul>
+      <ul> ${displayIngredients(data)} <ul>
       <hr>
       <h5>Instructions</h5>
-      <p> ${recipe.meals[0].strInstructions}</p>
+      <p> ${recipeInstruction(recipe)}</p>
       <hr>
-      <p class="calories"> ${Math.floor(data.hits[0].recipe.calories)} calories</p>
+      <p class="calories"> ${displayCalories(data)} </p>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect waves-green btn exit-btn">Close</a>
@@ -110,3 +126,4 @@ function viewNutrition(data, recipeTitle, recipe) {
 function zeroState() {
   noRes.style.display = "block";
 }
+
