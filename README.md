@@ -1,4 +1,14 @@
-## Git-A-Recipe
+
+# Git-A-Recipe
+Version 1.0.0
+
+### Live Application Link 👀
+Git-A-Recipe: [See deployment on Github Pages](https://adamromano89.github.io/recipe-app/)
+
+### Built With 🧰
+- HTML 
+- CSS
+- JavaScript
 
 ## Description
 
@@ -21,5 +31,3 @@ User will type a food ingredient in the input section. Once the search button is
 ##### James K 
 ##### Adam West 
 ##### Judge McGriff
-
-## License
