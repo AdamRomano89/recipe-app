@@ -51,6 +51,7 @@ function viewData(recipes) {
         </div>
         <div class="card-action">
           <a  class="modal-trigger" href="#modal1" onclick="getSpecificRecipe('${recipe.strMeal}','${recipe.idMeal}')">GET THIS RECIPE</a>
+          <button class="waves-effect waves-light btn" onclick="saveRecipe('${recipe.idMeal}')">+</button>
         </div>
       </div>
     </div>`;
@@ -63,6 +64,21 @@ function viewData(recipes) {
     zeroState();
   }
 }
+
+var meals = []
+function saveRecipe(id) {
+  fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id) // to get sepefici data for each meal
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (mealDetails) {
+    meals.push(mealDetails.meals[0])
+    localStorage.setItem('savingMeals' , JSON.stringify(meals) )
+  })
+  .catch(function (err) {});
+}
+
+
 function getSpecificRecipe(strMeal, id) {
   modal.innerHTML = "";
   // to get Caloures
@@ -105,7 +121,6 @@ function recipeInstruction(recipe){
 
 // View recipe details from api2 in Modal (Modal is in the HTML, so delete it first then create it dynamically in JS)
 function viewNutrition(data, recipeTitle, recipe) {
-  console.log(data);
   var modalHtmlEl = `<div class="modal-content">
       <h4>${recipeTitle}</h4>
       <h5>Ingredients</h5>
@@ -126,4 +141,3 @@ function viewNutrition(data, recipeTitle, recipe) {
 function zeroState() {
   noRes.style.display = "block";
 }
-

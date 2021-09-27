@@ -36,6 +36,11 @@ nav {
 }
 /* HERO END */
 
+.fav{
+  float: right;
+  margin-right: 10px;
+}
+
 .no-results {
   display: none;
   text-align: center;
