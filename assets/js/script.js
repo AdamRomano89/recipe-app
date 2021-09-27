@@ -37,7 +37,7 @@ function getRecipes(e) {
     .catch(function (err) {});
 }
 
-// View recipe from api 1
+// View recipe from api 1 and zero state function
 function viewData(recipes) {
   var card = "";
 
@@ -84,7 +84,7 @@ function getSpecificRecipe(strMeal, id) {
         .catch(function (err) {});
     });
 }
-
+//Thisplay Ingredients Function
 function displayIngredients(data) {
   return data.hits.length > 0 ? data.hits.find(function(cal){
     return cal.recipe.ingredients.length > 0
@@ -92,13 +92,13 @@ function displayIngredients(data) {
     return "<li>" + ing.text + "</li>"
   }).join("") : "No available ingredients"
 }
-
+//Display Calories Function
 function displayCalories(data){
   return data.hits.length > 0 ? Math.floor(data.hits.find(function(cal){
     return cal.recipe.calories > 0
    }).recipe.calories) : "No calories was found"
 }
-
+//Dispay Instructions function
 function recipeInstruction(recipe){
   return recipe.meals[0].strInstructions
 }
