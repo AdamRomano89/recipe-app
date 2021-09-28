@@ -51,7 +51,7 @@ function viewData(recipes) {
         </div>
         <div class="card-action">
           <a  class="modal-trigger" href="#modal1" onclick="getSpecificRecipe('${recipe.strMeal}','${recipe.idMeal}')">GET THIS RECIPE</a>
-          <button class="waves-effect waves-light btn" onclick="saveRecipe('${recipe.idMeal}')">+</button>
+          <button class="btn" onclick="saveRecipe('${recipe.idMeal}')">+</button>
         </div>
       </div>
     </div>`;

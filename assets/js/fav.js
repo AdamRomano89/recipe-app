@@ -1,4 +1,4 @@
-var divEl = document.querySelector("#fav .featured-section")
+var divEl = document.querySelector(".row")
 console.log(divEl);
 
 var data = JSON.parse(localStorage.getItem ('savingMeals')) || []
