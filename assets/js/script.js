@@ -73,7 +73,9 @@ function saveRecipe(id) {
   })
   .then(function (mealDetails) {
     meals.push(mealDetails.meals[0])
-    localStorage.setItem('savingMeals' , JSON.stringify(meals) )
+    let ids = meals.map((mid) => mid.idMeal);
+    let filteredItems = meals.filter( ({idMeal}, index) => !ids.includes(idMeal, index+ 1) )
+    localStorage.setItem('savingMeals' , JSON.stringify(filteredItems));
   })
   .catch(function (err) {});
 }
